@@ -42,6 +42,34 @@
 	</div>
 </div>
 <!-- 横サイドバー用スタイル -->
+<style>
+.sidebar-links {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100px;
+    background-color: #ffffff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.75em;
+    color: #708090;
+    z-index: 9999;
+}
+
+.sidebar-links a {
+    display: block;
+    color: #708090;
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc; /* 横線 */
+    text-align: center;
+    font-weight: bold;
+}
+
+.sidebar-links a:last-child {
+    border-bottom: none;
+}
+</style>
 <!-- サイドバーのHTML -->
 <div class="sidebar-links">
     <a href="foxtail milletとか？">Foxtail millet</a>
