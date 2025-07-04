@@ -39,17 +39,43 @@
         <a href="https://park.itc.u-tokyo.ac.jp/lgpr/index.html"><div class="logo"><img src="image/LGPR.tif"></div></a>
 	<div class="verline"></div>
 </div>
-<div class="theadertop">
-        <a href="foxtail milletとか？"><div class="logo" style="color:#3D5B59;line-height:25px;text-align:center"><span><b>Foxtail millet</b></span></div></a>
-        <div class="verline"></div>
-        <a href="finger milletとか？"><div class="logo" style="color:#3D5B59;line-height:25px;text-align:center"><span><b>Finger millet</b></span></div></a>
-        <div class="verline"></div>
-        <a href="ソルガムとか？"><div class="logo" style="color:#3D5B59;line-height:25px;text-align:center"><span><b>Sorghum</b></span></div></a>
-	<div class="verline"></div>
-	<a href="chickpeaとか？"><div class="logo" style="color:#3D5B59;line-height:25px;text-align:center"><span><b>Chick pea</b></span></div></a>
-	<div class="verline"></div>
-	<a href="ヒエとか？"><div class="logo" style="color:#3D5B59;line-height:25px;text-align:center"><span><b>Barnyard millet</b></span></div></a>
+<!-- 横サイドバー用スタイル -->
+<style>
+.sidebar-links {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 200px;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1.5em;
+    color: #33BEC5;
+    z-index: 9999;
+}
 
+.sidebar-links a {
+    display: block;
+    color: #33BEC5;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc; /* 横線 */
+    text-align: center;
+    font-weight: bold;
+}
+
+.sidebar-links a:last-child {
+    border-bottom: none;
+}
+</style>
+
+<!-- サイドバーのHTML -->
+<div class="sidebar-links">
+    <a href="foxtail milletとか？">Foxtail millet</a>
+    <a href="finger milletとか？">Finger millet</a>
+    <a href="ソルガムとか？">Sorghum</a>
+    <a href="chickpeaとか？">Chick pea</a>
+    <a href="ヒエとか？">Barnyard millet</a>
 </div>
 
 <script>
