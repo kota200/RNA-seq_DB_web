@@ -179,13 +179,13 @@ table tbody tr td{width: 100px;height: 35px;border-right: 1px solid #eeeeee;font
     padding: 5px;
     border: 1px solid #ccc;
     font-size: 0.75em;
-    color: #230007;
+    color: #708090;
     z-index: 9999;
 }
 
 .sidebar-links a {
     display: block;
-    color: #230007;
+    color: #708090;
     text-decoration: none;
     padding: 5px 0;
     border-bottom: 1px solid #ccc; /* 横線 */
