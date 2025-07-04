@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Rice RNA-seq database, Zhailab@SUSTech</title>
+<title>Pearl millet RNA-seq database</title>
 <link href="db.css" type="text/css" rel="stylesheet" />
 
 <!--Plugin CSS file with desired skin-->
@@ -90,7 +90,6 @@ $.fn.scrollUnique = function() {
             eventType = 'DOMMouseScroll';
         }
         $(this).on(eventType, function(event) {
-            // 一些数据
             var scrollTop = this.scrollTop,
                 scrollHeight = this.scrollHeight,
                 height = this.clientHeight;
@@ -98,9 +97,7 @@ $.fn.scrollUnique = function() {
             var delta = (event.originalEvent.wheelDelta) ? event.originalEvent.wheelDelta : -(event.originalEvent.detail || 0);        
 
             if ((delta > 0 && scrollTop <= delta) || (delta < 0 && scrollHeight - height - scrollTop <= -1 * delta)) {
-                // IE浏览器下滚动会跨越边界直接影响父级滚动，因此，临界时候手动边界滚动定位
                 this.scrollTop = delta > 0? 0: scrollHeight;
-                // 向上滚 || 向下滚
                 event.preventDefault();
             }        
         });
@@ -114,10 +111,10 @@ $.fn.scrollUnique = function() {
 </div>
 <div class="headtitle">
 	<div class="title1">
-		Rice RNA-seq Database 
+		Pearl millet RNA-seq Database 
 	</div>
 	<div class="title2">
-		Search gene expression levels from 10,000+ public Rice RNA-Seq libraries
+		A database for analyzing expression patterns of pearl millet genes collecting from public RNA-seq data.
 	</div> 
 </div>
 
@@ -145,38 +142,19 @@ $.fn.scrollUnique = function() {
 
 <div class="headinfo">
 	<div class="doc">
-	<span onclick="alllib()" style="color:#4169E1;cursor:pointer">All Libraries</span>
-	&nbsp;&nbsp;
 		<select id="demo" onchange="var ss=this.options[this.options.selectedIndex].value;search_example(ss);var press=ss.split('/')[0];$('#search').val(press);">
-			<option value="" style="cursor:none" disabled selected hidden>&nbsp;Examples</option>
-			<option value="LOC_Os01g01010">&nbsp;Single Gene: LOC_Os01g01010</option>
-			<option value="LOC_Os01g01010,LOC_Os01g01019,LOC_Os01g01030">&nbsp;Multiple Genes: LOC_Os01g01010,LOC_Os01g01019,LOC_Os01g01030</option>
-			<option value="DRX000523">&nbsp;Single Library: DRX000523</option>
-			<option value="DRX000523,DRX000459,DRX000460">&nbsp;Multiple Libraries: DRX000523,DRX000459,DRX000460</option>
-			<option value="LOC_Os01g01010,LOC_Os01g01019,PRJDA51203,PRJDA60497">&nbsp;Genes in Selected Porjects: LOC_Os01g01010,LOC_Os01g01019,PRJDA51203,PRJDA60497</option>
-			<option value="LOC_Os01g01010,LOC_Os01g01019,LOC_Os01g01030,LOC_Os01g01040,DRX000523,DRX000459,DRX000460,DRX000461,DRX000462">&nbsp;Genes in Selected Libraries: LOC_Os01g01010,LOC_Os01g01019,LOC_Os01g01030,LOC_Os01g01040,DRX000523,DRX000459,DRX000460,DRX000461,DRX000462</option>
-			<option value="dcl3">&nbsp;Keywords: dcl3</option>
-			<option value="dcl3,LOC_Os01g01019">&nbsp;Keywords + Gene: dcl3 LOC_Os01g01019</option>
+			<option value="" style="cursor:none" disabled selected hidden>&nbsp;Example</option>
+			<option value="Pgl_GLEAN_10010048">&nbsp;Single Gene: Pgl_GLEAN_10010048</option>
+			<option value="Pgl_GLEAN_10010048,Pgl_GLEAN_10022853,Pgl_GLEAN_10005952">&nbsp;Multiple Genes: Pgl_GLEAN_10010048,Pgl_GLEAN_10022853,Pgl_GLEAN_10005952</option>
+			<option value="dcl3">&nbsp;Keywords: AIL5 </option>
+			<option value="dcl3,LOC_Os01g01019">&nbsp;Keywords + Gene: AIL5 Pgl_GLEAN_10010048</option>
 		</select>
 		&nbsp;&nbsp;
 		<a href="tutorials.php" target="_blank">Tutorials</a>		
 		&nbsp;&nbsp;
-		<a href="http://jixianzhai.org/index.php?page=publication" target="_blank">Cite</a>
-		&nbsp;&nbsp;
-		<a href="https://plantrnadb.com//ricerna/download/" target="_blank">BatchDownload</a>
+		<a href="https://plantrnadb.com//ricerna/download/" target="_blank">Download</a>
 
 	</div>		
-		<div class="history">
-			<span onclick="showside();">History</span>
-		</div>
-		<div class="historyside" id="historyside">
-		</div>
-		<div class="advanopt underinput2 underinputclick">
-		&nbsp;Advanced Options
-		</div>
-		<div class="advanopt underinput3 underinputclick">
-		+
-		</div>
 </div>
 
 <div class="inputbg">
