@@ -31,12 +31,6 @@ a {
 .clear { clear: both; }
 
 /* ヘッダー */
-.header-container {
-  display: flex;
-  align-items: center; /* 高さを中央揃え */
-  justify-content: center; /* 両者を中央に寄せる（必要に応じて） */
-  gap: 20px; /* 横の余白 */
-}
 
 .theadertop {
   width: 100%;
@@ -47,7 +41,6 @@ a {
   margin: 5px 0px;
 }
 .theadertop .mylab {
-  float: left;
   height: 100%;
 }
 .theadertop .mylab img {
@@ -61,9 +54,16 @@ a {
   z-index: 9;
 }
 
+.header-container {
+  display: flex;
+  align-items: center; /* 高さを中央揃え */
+  justify-content: center; /* 両者を中央に寄せる（必要に応じて） */
+  gap: 20px; /* 横の余白 */
+}
+
 /* タイトル */
 #title {
-  text-align: center;
+  margin: 0;
 }
   
 .headtitle {
