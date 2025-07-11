@@ -39,52 +39,20 @@
 		<a href="https://park.itc.u-tokyo.ac.jp/lgpr/index.html"><div class="mylab"><img src="image/LGPR.png"></div></a>
 	</div>
 </div>
-<!-- 横サイドバー用スタイル -->
-<style>
-.sidebar {
-    position: fixed;
-    top: 50px;               /* 上に移動 */
-    left: 20px;
-    width: 200px;
-    height: 200px;           /* 高さ制限 */
-    background-color: #ffffff;
-    padding: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    color: #708090;
-    z-index: 9999;
-    overflow: hidden;        /* 全体にはスクロールバーを表示しない */
-}
 
-.sidebar-scroll {
-    max-height: 180px;       /* 内部スクロール領域 */
-    overflow-y: auto;        /* 縦スクロール有効 */
-}
-
-.sidebar-links a {
-    display: block;
-    color: #708090;
-    text-decoration: none;
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    font-weight: bold;
-}
-
-.sidebar-links a:last-child {
-    border-bottom: none;
-}
-</style>
-<!-- サイドバーのHTML -->
+#サイドバー
 <div class="sidebar">
-<div class="sidebar-links">
-    <a href="foxtail milletとか？">Foxtail millet</a>
-    <a href="finger milletとか？">Finger millet</a>
-    <a href="ソルガムとか？">Sorghum</a>
-    <a href="chickpeaとか？">Chick pea</a>
-    <a href="ヒエとか？">Barnyard millet</a>
-</div>
-<div class="headinfo">
+  <div class="sidebar-scroll">
+    <div class="sidebar-links">
+      <a href="#">Foxtail millet</a>
+      <a href="#">Finger millet</a>
+      <a href="#">Sorghum</a>
+      <a href="#">Chick pea</a>
+      <a href="#">Barnyard millet</a>
+    </div>
+  </div>
+  <!-- Data availability は非スクロール＆デフォルト表示 -->
+  <div class="headinfo">
     <div class="doc">
       <a href="The download link for the TPM file" target="_blank" class="default-link">
         Data availability
