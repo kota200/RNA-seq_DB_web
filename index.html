@@ -41,7 +41,7 @@
 </div>
 <!-- 横サイドバー用スタイル -->
 <style>
-.sidebar-links {
+.sidebar {
     position: fixed;
     top: 50px;               /* 上に移動 */
     left: 20px;
@@ -76,12 +76,14 @@
 }
 </style>
 <!-- サイドバーのHTML -->
+<div class="sidebar">
 <div class="sidebar-links">
     <a href="foxtail milletとか？">Foxtail millet</a>
     <a href="finger milletとか？">Finger millet</a>
     <a href="ソルガムとか？">Sorghum</a>
     <a href="chickpeaとか？">Chick pea</a>
     <a href="ヒエとか？">Barnyard millet</a>
+</div>
 <div class="headinfo">
     <div class="doc">
       <a href="The download link for the TPM file" target="_blank" class="default-link">
@@ -129,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			</div>
 			<div class="input12" id="input12">
 				<button class="button" id="submit" type="button" onclick="search1();">
-					<i class="fas fa-search" style="font-size: 32px; color: blue;"></i>
+					<i class="fas fa-search" style="font-size: 32px; color: #25271F;"></i>
 				</button>
 			</div>
 		</div>
