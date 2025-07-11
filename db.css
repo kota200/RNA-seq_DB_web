@@ -61,6 +61,7 @@ a {
   margin: 10px 10px;
   color: #333333;
   text-align: center;
+  position:center;
 }
   
 .headtitle {
@@ -70,6 +71,7 @@ a {
   margin: 20px 0;
   color: #282828;
   text-align: center;
+  font-size: 100px
 }
 
 /* 検索入力欄 */
