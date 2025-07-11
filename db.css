@@ -39,19 +39,12 @@ a {
   padding-top: 10px;
   margin: 0 auto;
 }
-.theadertop .logo {
+.theadertop .mylab {
   float: left;
   height: 100%;
 }
-.theadertop .logo img {
+.theadertop .mylab img {
   height: 50px;
-}
-.theadertop .verline {
-  float: left;
-  width: 1px;
-  height: 46px;
-  background: #505050;
-  margin: 2px 10px 0;
 }
 
 .theaderup {
