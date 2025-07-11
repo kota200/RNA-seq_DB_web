@@ -31,6 +31,13 @@ a {
 .clear { clear: both; }
 
 /* ヘッダー */
+.header-container {
+  display: flex;
+  align-items: center; /* 高さを中央揃え */
+  justify-content: center; /* 両者を中央に寄せる（必要に応じて） */
+  gap: 20px; /* 横の余白 */
+}
+
 .theadertop {
   width: 100%;
   height: 40px;
