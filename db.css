@@ -60,13 +60,11 @@ a {
 }
   
 .headtitle {
-  width: 100%;
-  height: 80px;
-  z-index: 8;
-  margin: 20px 0;
-  color: #282828;
-  text-align: center;
-  font-size: 100px
+  font-size: 32px;       /* 文字サイズを大きく */
+  font-weight: bold;     /* 太字にする（任意） */
+  text-align: center;    /* 中央ぞろえ */
+  margin-top: 10px;      /* タイトルとの間隔 */
+  color: #333333;        /* 任意の色 */
 }
 
 /* 検索入力欄 */
