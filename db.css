@@ -56,18 +56,8 @@ a {
 
 .header-container {
   display: flex;
-  justify-content: center; /* 両者を中央に寄せる（必要に応じて） */
-  position: center;
   text-align: center;
-  gap: 10px; /* 横の余白 */
-}
-
-/* タイトル */
-#title h1{
-  margin: 0;
-  font-size: 32px;
-  font-weight: bold;
-  text-align: center;
+  gap: 5px; /* 横の余白 */
 }
   
 .headtitle {
