@@ -43,15 +43,22 @@
 <style>
 .sidebar-links {
     position: fixed;
-    top: 200px;
+    top: 50px;               /* 上に移動 */
     left: 20px;
     width: 200px;
+    height: 200px;           /* 高さ制限 */
     background-color: #ffffff;
     padding: 5px;
     border: 1px solid #ccc;
     font-size: 1em;
     color: #708090;
     z-index: 9999;
+    overflow: hidden;        /* 全体にはスクロールバーを表示しない */
+}
+
+.sidebar-scroll {
+    max-height: 180px;       /* 内部スクロール領域 */
+    overflow-y: auto;        /* 縦スクロール有効 */
 }
 
 .sidebar-links a {
@@ -59,7 +66,7 @@
     color: #708090;
     text-decoration: none;
     padding: 5px 0;
-    border-bottom: 1px solid #ccc; /* 横線 */
+    border-bottom: 1px solid #ccc;
     text-align: center;
     font-weight: bold;
 }
@@ -76,10 +83,12 @@
     <a href="chickpeaとか？">Chick pea</a>
     <a href="ヒエとか？">Barnyard millet</a>
 <div class="headinfo">
-<div class="doc">
-<a href="The download link for the TPM file" target="_blank">Data availability</a>
-</div>		
-</div>
+    <div class="doc">
+      <a href="The download link for the TPM file" target="_blank" class="default-link">
+        Data availability
+      </a>
+    </div>
+  </div>
 </div>
 
 <script>
