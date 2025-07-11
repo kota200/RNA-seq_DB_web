@@ -58,17 +58,19 @@ a {
   display: flex;
   align-items: center; /* 高さを中央揃え */
   justify-content: center; /* 両者を中央に寄せる（必要に応じて） */
-  gap: 20px; /* 横の余白 */
+  gap: 10px; /* 横の余白 */
 }
 
 /* タイトル */
-#title {
+#title h1{
   margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
 }
   
 .headtitle {
   font-size: 32px;       /* 文字サイズを大きく */
-  font-weight: bold;     /* 太字にする（任意） */
   text-align: center;    /* 中央ぞろえ */
   margin-top: 10px;      /* タイトルとの間隔 */
   color: #333333;        /* 任意の色 */
