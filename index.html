@@ -80,58 +80,26 @@
 </div>
 
 <script>
-function setCookie(name,value,d){
-var exp = new Date();
-exp.setTime(exp.getTime() + d*24*60*60*1000);
-document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-};
+function applyScrollLock(el) {
+  el.addEventListener('wheel', function(event) {
+    const scrollTop = el.scrollTop;
+    const scrollHeight = el.scrollHeight;
+    const height = el.clientHeight;
+    const delta = event.deltaY;
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-         }
-         if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-         }
-     }
-    return "";
-};
+    const atTop = delta < 0 && scrollTop === 0;
+    const atBottom = delta > 0 && scrollTop + height >= scrollHeight;
 
+    if (atTop || atBottom) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+}
 
-setCookie("newtable", "no", 1);
-setCookie("newigv", "no", 1);
-setCookie("newplot", "no", 1);
-setCookie("newinfo", "no", 1);
-//setCookie("trans", "yes", 1);
-
-
-$.fn.scrollUnique = function() {
-    return $(this).each(function() {
-        var eventType = 'mousewheel';
-        if (document.mozHidden !== undefined) {
-            eventType = 'DOMMouseScroll';
-        }
-        $(this).on(eventType, function(event) {
-            var scrollTop = this.scrollTop,
-                scrollHeight = this.scrollHeight,
-                height = this.clientHeight;
-
-            var delta = (event.originalEvent.wheelDelta) ? event.originalEvent.wheelDelta : -(event.originalEvent.detail || 0);        
-
-            if ((delta > 0 && scrollTop <= delta) || (delta < 0 && scrollHeight - height - scrollTop <= -1 * delta)) {
-                this.scrollTop = delta > 0? 0: scrollHeight;
-                event.preventDefault();
-            }        
-        });
-    });	
-};
-
-
+// 使用例: クラス .scroll-box をすべて対象に適用
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.scroll-box').forEach(applyScrollLock);
+});
 </script>
 
 <div class="theaderup">
@@ -145,7 +113,7 @@ $.fn.scrollUnique = function() {
 	<form role="search">
 		<div class="input1">
 			<div class="input11" id="dataInput">
-				<input type="text" id="search" placeholder="Search Gene">
+				<input type="text" id="search" placeholder="Search Gene ID ex) PglGLEAN_102560">
 			</div>
 			<div class="input12" id="input12">
 				<button class="button" id="submit" type="button" onclick="search1();">
