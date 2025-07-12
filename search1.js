@@ -2,7 +2,7 @@ let parsedData = null;
 
 // CSV読み込み
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('csvFile').addEventListener('change', function (e) {
+  document.getElementById('PM_TPM_matrix_t_mod_for_practice.csv').addEventListener('change', function (e) {
     const file = e.target.files[0];
     Papa.parse(file, {
       complete: function(results) {
