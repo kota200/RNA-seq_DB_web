@@ -1,40 +1,40 @@
 let parsedData = null;
 
-// CSVファイル読み込み
-document.getElementById('PM_TPM_matrix_t_mod_for_practice.csv').addEventListener('change', function (e) {
-  const file = e.target.files[0];
-  Papa.parse(file, {
-    complete: function(results) {
-      parsedData = results.data;
-      alert("CSV読み込み完了");
+// CSV読み込み
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('csvFile').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    Papa.parse(file, {
+      complete: function(results) {
+        parsedData = results.data;
+        alert("CSV読み込み完了");
+      }
+    });
+  });
+
+  // ボタンクリック時にプロットを描画
+  document.getElementById('searchButton').addEventListener('click', () => {
+    const geneName = document.getElementById("search").value.trim();
+    if (!parsedData) {
+      alert("先にCSVファイルを読み込んでください。");
+      return;
     }
+    drawPlot(geneName);
   });
 });
 
-// 描画ボタンイベント
-document.getElementById('drawButton').addEventListener('click', drawPlot);
+function drawPlot(geneName) {
+  const tissueRow = parsedData[2];   // 組織情報 (3行目)
+  const lineRow = parsedData[4];     // 系統情報 (5行目)
+  const geneRows = parsedData.slice(6); // 遺伝子行
 
-function drawPlot() {
-  const geneName = document.getElementById("geneName").value.trim();
-  if (!parsedData) {
-    alert("先にCSVファイルを読み込んでください。");
-    return;
-  }
-
-  // ヘッダーとメタ情報
-  const tissueRow = parsedData[2];   // 3行目 (0-indexed)
-  const lineRow = parsedData[4];     // 5行目
-  const geneRows = parsedData.slice(6);  // 7行目以降が遺伝子データ
-
-  // 遺伝子行を検索
   const geneRow = geneRows.find(row => row[0] === geneName);
   if (!geneRow) {
     alert("指定された遺伝子が見つかりません。");
     return;
   }
 
-  const groups = {}; // { line_tissue: [発現値, ...] }
-
+  const groups = {};
   for (let col = 1; col < geneRow.length; col++) {
     const tissue = tissueRow[col];
     const line = lineRow[col];
@@ -61,4 +61,3 @@ function drawPlot() {
     violinmode: 'group'
   });
 }
-
