@@ -1,7 +1,7 @@
 let parsedData = null;
 
-// CSV読み込み
-document.addEventListener('DOMContentLoaded', () => {
+// CSV読み込み処理（既にある前提）
+document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('PM_TPM_matrix_t_mod_for_practice.csv').addEventListener('change', function (e) {
     const file = e.target.files[0];
     Papa.parse(file, {
@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ボタンクリック時にプロットを描画
-  document.getElementById('searchButton').addEventListener('click', () => {
+  // 検索ボタンクリック時の処理
+  document.getElementById('searchButton').addEventListener('click', function () {
     const geneName = document.getElementById("search").value.trim();
     if (!parsedData) {
-      alert("先にCSVファイルを読み込んでください。");
+      alert("CSVを先に読み込んでください。");
       return;
     }
     drawPlot(geneName);
@@ -24,22 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function drawPlot(geneName) {
-  const tissueRow = parsedData[2];   // 組織情報 (3行目)
-  const lineRow = parsedData[4];     // 系統情報 (5行目)
-  const geneRows = parsedData.slice(6); // 遺伝子行
+  const tissueRow = parsedData[2];   // 組織 (3行目)
+  const lineRow = parsedData[4];     // 系統 (5行目)
+  const geneRows = parsedData.slice(6);  // 遺伝子データ
 
   const geneRow = geneRows.find(row => row[0] === geneName);
   if (!geneRow) {
-    alert("指定された遺伝子が見つかりません。");
+    alert(`遺伝子 ${geneName} が見つかりません`);
     return;
   }
 
   const groups = {};
-  for (let col = 1; col < geneRow.length; col++) {
-    const tissue = tissueRow[col];
-    const line = lineRow[col];
+  for (let i = 1; i < geneRow.length; i++) {
+    const tissue = tissueRow[i];
+    const line = lineRow[i];
     const key = `${line}_${tissue}`;
-    const value = parseFloat(geneRow[col]);
+    const value = parseFloat(geneRow[i]);
 
     if (!groups[key]) groups[key] = [];
     if (!isNaN(value)) groups[key].push(value);
