@@ -1,6 +1,6 @@
 let parsedData = null;
 
-// CSVファイル読み込みイベント
+// CSVファイル読み込み
 document.getElementById('csvFile').addEventListener('change', function (e) {
   const file = e.target.files[0];
   Papa.parse(file, {
@@ -21,23 +21,25 @@ function drawPlot() {
     return;
   }
 
-  const headers = parsedData[0];
-  const sampleParts = parsedData[1];
-  const cultivars = parsedData[2];
+  // ヘッダーとメタ情報
+  const tissueRow = parsedData[2];   // 3行目 (0-indexed)
+  const lineRow = parsedData[4];     // 5行目
+  const geneRows = parsedData.slice(6);  // 7行目以降が遺伝子データ
 
-  const geneIndex = headers.indexOf(geneName);
-  if (geneIndex === -1) {
+  // 遺伝子行を検索
+  const geneRow = geneRows.find(row => row[0] === geneName);
+  if (!geneRow) {
     alert("指定された遺伝子が見つかりません。");
     return;
   }
 
-  const groups = {}; // 品種_部位ごとにまとめる
+  const groups = {}; // { line_tissue: [発現値, ...] }
 
-  for (let i = 3; i < parsedData.length; i++) {
-    const cultivar = cultivars[i];
-    const part = sampleParts[i];
-    const key = `${cultivar}_${part}`;
-    const value = parseFloat(parsedData[i][geneIndex]);
+  for (let col = 1; col < geneRow.length; col++) {
+    const tissue = tissueRow[col];
+    const line = lineRow[col];
+    const key = `${line}_${tissue}`;
+    const value = parseFloat(geneRow[col]);
 
     if (!groups[key]) groups[key] = [];
     if (!isNaN(value)) groups[key].push(value);
@@ -52,10 +54,11 @@ function drawPlot() {
   }));
 
   Plotly.newPlot('plot', traces, {
-    title: `${geneName} の発現量（品種×部位別）`,
+    title: `${geneName} の発現量（系統×組織別）`,
     yaxis: { title: '発現量' },
     xaxis: { tickangle: -45 },
     violingap: 0,
     violinmode: 'group'
   });
 }
+
